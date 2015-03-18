@@ -107,3 +107,59 @@ ggplot(bbox_df, aes(x=long,y=lat, group=group)) + #plot map
   coord_equal() + #add coordinates
   scale_fill_manual(values=c("#04B404", "#58D3F7"), guide="none") 
   #color land
+
+###Least Concern geocode
+Leptailurus_serval =c("Angola", " Benin", " Botswana", " Burkina Faso", " Burundi", " Cameroon", " Central African Republic", " Chad", " Congo", " Congo, The Democratic Republic of the", " Côte d'Ivoire", " Djibouti", " Eritrea", " Ethiopia", " Gabon", " Gambia", " Ghana", " Guinea", " Guinea-Bissau", " Kenya", " Liberia", " Malawi", " Mali", " Morocco", " Mozambique", " Namibia", " Niger", " Nigeria", " Rwanda", " Senegal", " Sierra Leone", " Somalia", " South Africa", " South Sudan", " Sudan", " Swaziland", " Tanzania", "Togo", " Uganda", " Zambia", " Zimbabwe")
+ll.Leptailurus_serval=geocode(Leptailurus_serval)
+
+Felis_silvestris =c("Afghanistan", " Albania", " Algeria", " Andorra", " Angola", " Armenia", " Austria", " Azerbaijan", " Belarus", " Belgium", " Benin", " Bosnia and Herzegovina", " Botswana", " Bulgaria", " Burkina Faso", " Burundi", " Cameroon", " Central African Republic", " Chad", " China", " Congo", " Congo", " Croatia", " Czech Republic", " Djibouti", " Egypt", " Eritrea", " Ethiopia", " France", " Gambia", " Georgia", " Germany", " Ghana", " Gibraltar", " Greece", " Guinea", " Guinea-Bissau", " Hungary", " India", " Iran, Islamic Republic of", " Iraq", " Israel", " Italy", " Jordan", " Kazakhstan", " Kenya", " Kuwait", " Kyrgyzstan", " Latvia", " Lebanon", " Lesotho", " Libya", " Lithuania", " Luxembourg", " Macedonia", " Malawi", " Mali", " Mauritania", " Moldova", " Mongolia", " Montenegro", " Morocco", " Mozambique", " Namibia", " Niger", " Nigeria", " Oman", " Pakistan", " Poland", " Portugal", " Romania", " Russian Federation", " Rwanda", " Saudi Arabia", " Senegal", " Serbia", " Sierra Leone", " Slovakia", " Slovenia", " Somalia", " South Africa", " South Sudan", " Spain", " Sudan", " Swaziland", " Switzerland", " Syrian Arab Republic", " Tajikistan", " Tanzania", "Togo", " Tunisia", " Turkey", " Turkmenistan", " Uganda", " Ukraine", " United Arab Emirates", " United Kingdom", " Uzbekistan", " Western Sahara", " Yemen", " Zambia", " Zimbabwe")
+ll.Felis_silvestris=geocode(Felis_silvestris)
+
+Herpailurus_yagouaroundi =c("Argentina", " Belize", " Bolivia", " Brazil", " Colombia", " Costa Rica", " Ecuador", " El Salvador", " French Guiana", " Guatemala", " Guyana", " Honduras", " Mexico", " Nicaragua", " Panama", " Paraguay", " Peru", " Suriname", " Venezuela")
+ll.Herpailurus_yagouaroundi=geocode(Herpailurus_yagouaroundi)
+
+Felis_chaus=c("Afghanistan", " Armenia", " Azerbaijan", " Bangladesh", " Bhutan", " Cambodia", " China", " Egypt", " Georgia", " India", " Iran, Islamic Republic of", " Iraq", " Israel", " Jordan", " Kazakhstan", " Kyrgyzstan", " Laos", " Lebanon", " Myanmar", " Nepal", " Pakistan", " Russian Federation", " Sri Lanka", " Syrian Arab Republic", " Tajikistan", " Thailand", " Turkey", " Turkmenistan", " Uzbekistan", " Vietnam")
+ll.Felis_chaus=geocode(Felis_chaus)
+
+Prionailurus_planiceps =c("Brunei Darussalam", "Kalimantan","Sumatera", "Malaysia", "Sabah", "Sarawak", " Thailand")
+ll.Prionailurus_planiceps=geocode(Prionailurus_planiceps)
+
+Puma_concolor =c("Argentina", " Belize", " Bolivia, Plurinational States of", " Brazil", " Canada", " Chile", " Colombia", " Costa Rica", " Ecuador", " El Salvador", " French Guiana", " Guatemala", " Guyana", " Honduras", " Mexico", " Nicaragua", " Panama", " Paraguay", " Peru", " Suriname", " United States", " Venezuela")
+ll.Puma_concolor=geocode(Puma_concolor)
+
+Caracal_caracal = c("Afghanistan", " Algeria", " Angola", " Benin", " Botswana", " Burkina Faso", " Cameroon", " Chad", " Congo"," Côte d'Ivoire", " Djibouti", " Egypt", " Eritrea", " Ethiopia", " Gambia", " Ghana", " Guinea", " Guinea-Bissau", " India", " Iran", " Iraq", " Israel", " Jordan", " Kazakhstan", " Kenya", " Kuwait", " Lebanon", " Lesotho", " Libya", " Malawi", " Mali", " Mauritania", " Morocco", " Mozambique", " Namibia", " Niger", " Nigeria", " Oman", " Pakistan", " Saudi Arabia", " Senegal", " Somalia", " South Africa", " South Sudan", " Sudan", " Swaziland", " Syrian Arab Republic", " Tajikistan", " Tanzania", " Togo", " Tunisia", " Turkey", " Turkmenistan", " Uganda", " United Arab Emirates", " Uzbekistan", " Western Sahara", " Yemen", " Zambia", " Zimbabwe")
+ll.Caracal_caracal=geocode(Caracal_caracal)
+
+Lynx_lynx = c("Afghanistan", " Albania", " Armenia", " Austria", " Azerbaijan", " Belarus", " Bhutan", " Bosnia and Herzegovina", " Bulgaria", " China", " Croatia", " Czech Republic", " Estonia", " Finland", " France", " Georgia", " Germany", " Greece", " Hungary", " India", " Iran", " Iraq", " Italy", " Kazakhstan", " Korea", " Kyrgyzstan", " Latvia", " Lithuania", " Macedonia, the former Yugoslav Republic of", " Moldova", " Mongolia", " Montenegro", " Nepal", " Norway", " Pakistan", " Poland", " Romania", " Russian Federation", " Serbia", " Slovakia", " Slovenia", " Spain", " Sweden", " Switzerland", " Tajikistan", " Turkey", " Turkmenistan", " Ukraine", " Uzbekistan")
+ll.Lynx_lynx=geocode(Lynx_lynx)
+
+Lynx_rufus = c("British Columbia", "Manitoba", "New Brunswick", "Ontario", "Québec", " Mexico", "Alabama", "Arizona", "Arkansas","California", "Colorado", "Connecticut", "Florida", "Georgia", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin, Wyoming")
+ll.Lynx_rufus=geocode(Lynx_rufus)
+
+Prionailurus_bengalensis = c("Afghanistan", " Bangladesh", " Bhutan", " Brunei Darussalam", " Cambodia", " China", " Hong Kong", " India", "Jawa", "Kalimantan", "Sumatera", " Japan", " Korea", " Korea", " Laos", " Malaysia", " Myanmar", " Nepal", " Pakistan", " Philippines", "Russia", " Singapore", " Taiwan", " Thailand", " Vietnam")
+ll.Prionailurus_bengalensis =geocode(Prionailurus_bengalensis)
+
+Leopardus_pardalis = c("Argentina", " Belize", " Bolivia", " Brazil", " Colombia", " Costa Rica", " Ecuador", " El Salvador", " French Guiana", " Guatemala", " Guyana", " Honduras", " Mexico", " Nicaragua", " Panama", " Paraguay", " Peru", " Suriname", " Trinidad", "Tobago", " United States", " Venezuela")
+ll.Leopardus_pardalis =geocode(Leopardus_pardalis)
+
+ggplot(bbox_df, aes(x=long,y=lat, group=group)) +
+  geom_polygon(fill="#58D3F7") +
+  geom_polygon(data=wmap_df, aes(x=long,y=lat, group=group, fill=hole)) + 
+  geom_path(data=countries_df, aes(x=long,y=lat, group=group, fill=hole), color="#0B610B")+
+  geom_polygon(data=urban_df, aes(x=long,y=lat, group=group, fill=hole), color="#BDBDBD", border="#848484", lwd=1.0, add=TRUE, alpha=I(2/10)) + 
+  geom_point(data=ll.Leptailurus_serval, aes(x=lon,y=lat, group=NULL), color="#0B0B61", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Felis_silvestris, aes(x=lon,y=lat, group=NULL), color="#0101DF", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Herpailurus_yagouaroundi, aes(x=lon,y=lat, group=NULL), color="#5858FA", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Felis_chaus, aes(x=lon,y=lat, group=NULL), color="#81BEF7", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Prionailurus_planiceps, aes(x=lon,y=lat, group=NULL), color="#0080FF", lwd=5.0,alpha = 0.5 ) +
+  geom_point(data=ll.Puma_concolor, aes(x=lon,y=lat, group=NULL), color="#084B8A", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Caracal_caracal, aes(x=lon,y=lat, group=NULL), color="#0080FF", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Lynx_lynx, aes(x=lon,y=lat, group=NULL), color="#5858FA", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Lynx_rufus, aes(x=lon,y=lat, group=NULL), color="#0101DF", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Prionailurus_bengalensis, aes(x=lon,y=lat, group=NULL), color="#0B0B61", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Leopardus_pardalis, aes(x=lon,y=lat, group=NULL), color="#0489B1", lwd=5.0,alpha = 0.5) +
+  geom_path(data=grat_df, aes(long, lat, group=group, fill=NULL), linetype="dashed", color="grey50") +
+  labs(title="Least Concern Felidae Species") + 
+  coord_equal() + 
+  #theme_opts +
+  scale_fill_manual(values=c("#04B404", "#58D3F7"), guide="none")
