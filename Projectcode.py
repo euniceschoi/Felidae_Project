@@ -50,4 +50,18 @@ from collections import Counter
 #count number of each threat level
 wordcount = Counter(file.read().split())
 #print threat level next to count
-for item in wordcount.items(): print({}\t{}".format(*item))
+for item in wordcount.items(): print("{}\t{}".format(*item))
+
+#open file with all links
+file = open("felidae_links.txt").readlines()
+import subprocess
+import sys
+#count
+count = 0
+#write loop that curls each link into files with numerical labels
+for line in file:
+        count+=1
+        print "links{}.html".format(count), line
+        subprocess.call(['curl','-L',' -o',"links{}.html".format(count),line.strip()])
+
+
