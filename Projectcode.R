@@ -65,3 +65,31 @@ Plurinational States of", " Brazil",
 
 #geocode countries and save as a table
 ll.Leopardus_tigrinus = geocode(Leopardus_tigrinus)
+
+#load packages
+library(rgdal)
+library(ggplot2)
+library(sp)
+
+# read world map shapefile from NaturalEarth
+worldmap = readOGR(dsn="ne_110m_land.shp", layer="ne_110m_land")
+# convert to dataframe
+worldmap_df = fortify(worldmap)
+
+# read graticule shapefile
+grat = readOGR("ne_110m_graticules_15.shp", layer="ne_110m_graticules_15") 
+grat_df = fortify(grat)
+
+# read bounding box shapefile
+bbox = readOGR("ne_110m_wgs84_bounding_box.shp", layer="ne_110m_wgs84_bounding_box") 
+bbox_df = fortify(bbox)
+
+# read urban areas shapefile
+urban = readOGR("ne_50m_urban_areas.shp", layer="ne_50m_urban_areas")
+urban_df = fortify(urban)
+
+#read countries shapefile
+countries=readOGR("ne_110m_admin_0_countries.shp", layer ="ne_110m_admin_0_countries")
+countries_df = fortify(countries)
+
+#convert all to dataframe
