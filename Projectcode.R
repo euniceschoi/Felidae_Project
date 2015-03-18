@@ -52,3 +52,16 @@ p <- ggplot(df, aes(Continent, Count, fill=ThreatLevel)) +
     geom_bar(stat='identity') +
     theme_bw(base_size=16)
 print(p)
+
+#load packages
+library("ggmap")
+
+#concatenate list of countries for each species
+Leopardus_tigrinus <- c("Argentina", "Bolivia, 
+Plurinational States of", " Brazil", 
+"Colombia", "Costa Rica", "Ecuador",
+"French Guiana", "Guyana", " Panama",
+"Paraguay", "Peru", "Suriname", "Venezuela")
+
+#geocode countries and save as a table
+ll.Leopardus_tigrinus = geocode(Leopardus_tigrinus)
