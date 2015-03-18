@@ -213,3 +213,53 @@ ggplot(bbox_df, aes(x=long,y=lat, group=group)) +
   theme_opts +
   scale_fill_manual(values=c("#04B404", "#58D3F7") ,guide="none")
 
+###Vulnerable geocode and map
+
+Acinonyx_jubatus <- c("Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Central African Republic", "Chad", "Congo", "Ethiopia", "Iran", "Kenya", "Mozambique", "Namibia", "Niger", "Somalia",  "South Africa", "South Sudan", "Sudan", "Tanzania")
+ll.Acinonyx_jubatus <- geocode(Acinonyx_jubatus)
+
+Leopardus_tigrinus <- c("Argentina", " Bolivia, Plurinational States of", " Brazil", " Colombia", " Costa Rica", " Ecuador", " French Guiana", " Guyana", " Panama", " Paraguay", " Peru", " Suriname", " Venezuela")
+ll.Leopardus_tigrinus <- geocode(Leopardus_tigrinus)
+
+Neofelis_diardi <- c("Brunei Darussalam", " Indonesia (Kalimantan, Sumatera)", " Malaysia (Sabah, Sarawak)")
+ll.Neofelis_diardi <- geocode(Neofelis_diardi)
+
+Prionailurus_rubiginosus <- c("India", " Sri Lanka")
+ll.Prionailurus_rubiginosus <- geocode(Prionailurus_rubiginosus)
+
+Leopardus_guigna <- c("Argentina", " Chile")
+ll.Leopardus_guigna <- geocode(Leopardus_guigna)
+
+Pardofelis_marmorata <- c("Bhutan", " Brunei Darussalam", " Cambodia", " China", " India", " Indonesia (Kalimantan, Sumatera)", " Lao People's Democratic Republic", " Malaysia (Peninsular Malaysia, Sabah, Sarawak)", " Myanmar", " Nepal", " Thailand", " Viet Nam")
+ll.Pardofelis_marmorata <- geocode(Pardofelis_marmorata)
+
+Panthera_leo <- c("Angola (Angola)", " Benin", " Botswana", " Burkina Faso", " Cameroon", " Central African Republic", " Chad", " Congo, The Democratic Republic of the", " CÃ´te d'Ivoire", " Ethiopia", " Ghana", " Guinea", " Guinea-Bissau", " India", " Kenya", " Malawi", " Mali", " Mozambique", " Namibia", " Niger", " Nigeria", " Rwanda", " Senegal", " Somalia", " South Africa", " South Sudan", " Swaziland", " Tanzania, United Republic of", " Uganda", " Zambia", " Zimbabwe")
+ll.Panthera_leo <- geocode(Panthera_leo)
+
+Felis_nigripes <- c("Angola (Angola)", " Botswana", " Namibia", " South Africa", " Zimbabwe")
+ll.Felis_nigripes <- geocode(Felis_nigripes)
+
+Neofelis_nebulosa <- c("Bangladesh", " Bhutan", " Cambodia", " China", " India", " Lao People's Democratic Republic", " Malaysia (Peninsular Malaysia)", " Myanmar", " Nepal", " Thailand", " Viet Nam")
+ll.Neofelis_nebulosa <- geocode(Neofelis_nebulosa)
+
+
+ggplot(bbox_df, aes(x=long,y=lat, group=group)) +
+  geom_polygon(fill="#58D3F7") +
+  geom_polygon(data=wmap_df, aes(x=long,y=lat, group=group, fill=hole)) + 
+  geom_path(data=countries_df, aes(x=long,y=lat, group=group, fill=hole), color="#0B610B")+
+  geom_polygon(data=urban_df, aes(x=long,y=lat, group=group, fill=hole), color="#BDBDBD", border="#848484", lwd=1.0, add=TRUE, alpha=I(2/10)) + 
+  geom_point(data=ll.Acinonyx_jubatus, aes(x=lon,y=lat, group=NULL), color="#380B61", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Leopardus_tigrinus, aes(x=lon,y=lat, group=NULL), color="#7401DF", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Neofelis_diardi, aes(x=lon,y=lat, group=NULL), color="#29088A", lwd=5.0,alpha = 0.5 ) +
+  geom_point(data=ll.Prionailurus_rubiginosus, aes(x=lon,y=lat, group=NULL), color="#4000FF", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Leopardus_guigna, aes(x=lon,y=lat, group=NULL), color="#9A2EFE", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Pardofelis_marmorata, aes(x=lon,y=lat, group=NULL), color="#8181F7", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Panthera_leo, aes(x=lon,y=lat, group=NULL), color="#BE81F7", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Felis_nigripes, aes(x=lon,y=lat, group=NULL), color="#29088A", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Neofelis_nebulosa , aes(x=lon,y=lat, group=NULL), color="#4000FF", lwd=5.0,alpha = 0.5) +
+  geom_path(data=grat_df, aes(long, lat, group=group, fill=NULL), linetype="dashed", color="grey50") +
+  labs(title="Vulnerable Felidae Species") + 
+  coord_equal() + 
+  theme_opts +
+  scale_fill_manual(values=c("#04B404", "#58D3F7"), guide="none")
+
