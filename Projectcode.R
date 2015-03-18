@@ -161,7 +161,6 @@ ggplot(bbox_df, aes(x=long,y=lat, group=group)) +
   geom_path(data=grat_df, aes(long, lat, group=group, fill=NULL), linetype="dashed", color="grey50") +
   labs(title="Least Concern Felidae Species") + 
   coord_equal() + 
-  #theme_opts +
   scale_fill_manual(values=c("#04B404", "#58D3F7"), guide="none")
 
 
@@ -209,8 +208,7 @@ ggplot(bbox_df, aes(x=long,y=lat, group=group)) +
   geom_point(data=ll.Otocolobus_manul.nt9, aes(x=lon,y=lat, group=NULL), color="#610B0B", lwd=5.0,alpha = 0.5) +
   geom_path(data=grat_df, aes(long, lat, group=group, fill=NULL), linetype="dashed", color="grey50") +
   labs(title="Near Threatened Felidae Species") + 
-  coord_equal() + 
-  theme_opts +
+  coord_equal() +
   scale_fill_manual(values=c("#04B404", "#58D3F7") ,guide="none")
 
 ###Vulnerable geocode and map
@@ -260,7 +258,6 @@ ggplot(bbox_df, aes(x=long,y=lat, group=group)) +
   geom_path(data=grat_df, aes(long, lat, group=group, fill=NULL), linetype="dashed", color="grey50") +
   labs(title="Vulnerable Felidae Species") + 
   coord_equal() + 
-  theme_opts +
   scale_fill_manual(values=c("#04B404", "#58D3F7"), guide="none")
 
 ###Endangered geocode and map
@@ -293,3 +290,23 @@ ggplot(bbox_df, aes(x=long,y=lat, group=group)) +
   labs(title="Endangered Felidae Species") + 
   coord_equal() + 
   scale_fill_manual(values=c("#04B404", "#58D3F7"), guide="none")
+
+#CE geocode and map
+Lynx_pardinus <- c("Spain")
+
+#geocode countries and save as a table
+ll.Lynx_pardinus = geocode(Leopardus_tigrinus)
+
+ggplot(bbox_df, aes(x=long,y=lat, group=group)) + #plot map
+  geom_polygon(fill="#04B404") +
+  geom_polygon(data=wmap_df, aes(x=long,y=lat, group=group, fill=hole)) + #add world map
+  geom_path(data=countries_df, aes(x=long,y=lat, group=group, fill=hole), color="#0B610B") + 
+  #add countries
+  geom_polygon(data=urban_df, aes(x=long,y=lat, group=group, fill=hole), color="#BDBDBD", border="#848484", lwd=0.2, add=TRUE, 
+               alpha = 0.1) + #add urban areas
+  geom_point(data=ll.Lynx_pardinus, aes(x=lon,y=lat, group=NULL), color="#FE2E9A", lwd=5.0,alpha = 0.7) + #add species points
+  labs(title="Critically Endangered Felidae Species") + #add labels
+  coord_equal() + #add coordinates
+  scale_fill_manual(values=c("#04B404", "#58D3F7"), guide="none") 
+#color land
+
