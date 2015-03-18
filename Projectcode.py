@@ -13,3 +13,21 @@ for li in felidae_li:
   for string in status.strings:
     #write webscraped data onto the new file
     file.write(string.strip())
+
+#open new file called poptrend
+file = open("poptrend.txt","w",)
+#Search for population trends in felidae file
+for line in open('felidae_web'):
+    rec = line.strip()
+    if rec.startswith('Pop'):
+        #write lines population trends onto the new file 
+        file.write(line)
+        file.close()
+
+#open poptrend file
+file = open(r"poptrend.txt", "r", encoding="utf-8-sig")
+from collections import Counter
+#count number of each trend
+wordcount = Counter(file.read().split())
+#print population trend next to count
+for item in wordcount.items(): print({}\t{}".format(*item))
