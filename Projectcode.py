@@ -30,7 +30,7 @@ from collections import Counter
 #count number of each trend
 wordcount = Counter(file.read().split())
 #print population trend next to count
-for item in wordcount.items(): print({}\t{}".format(*item))
+for item in wordcount.items(): print("{}\t{}".format(*item))
 
 
 
