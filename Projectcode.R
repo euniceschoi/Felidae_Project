@@ -263,3 +263,33 @@ ggplot(bbox_df, aes(x=long,y=lat, group=group)) +
   theme_opts +
   scale_fill_manual(values=c("#04B404", "#58D3F7"), guide="none")
 
+###Endangered geocode and map
+Leopardus_jacobita <-c("Argentina", " Bolivia, Plurinational States of", " Chile", " Peru")
+ll.Leopardus_jacobita <- geocode(Leopardus_jacobita)
+
+Panthera_uncia <-c("Afghanistan", " Bhutan", " China (Gansu, Qinghai, Sichuan, Tibet [or Xizang], Xinjiang, Yunnan - Regionally Extinct)", " India (Himachal Pradesh, Jammu-Kashmir, Sikkim, Uttaranchal)", " Kazakhstan", " Kyrgyzstan", " Mongolia", " Nepal", " Pakistan", " Russian Federation", " Tajikistan", " Uzbekistan")
+ll.Panthera_uncia <- geocode(Panthera_uncia)
+
+Prionailurus_viverrinus <-c("Bangladesh", " Bhutan", " Cambodia", " India", " Indonesia (Jawa)", " Lao People's Democratic Republic", " Myanmar", " Nepal", " Sri Lanka", " Thailand", " Viet Nam")
+ll.Prionailurus_viverrinus <- geocode(Prionailurus_viverrinus)
+
+Panthera_tigris <-c("Bangladesh", " Bhutan", " Cambodia", " China (Anhui - Regionally Extinct, Beijing - Regionally Extinct, Chongqing - Regionally Extinct, Fujian - Possibly Extinct, Guangdong - Possibly Extinct, Guangxi - Regionally Extinct, Guizhou - Regionally Extinct, Hebei - Regionally Extinct, Heilongjiang, Henan - Regionally Extinct, Hubei - Regionally Extinct, Hunan - Possibly Extinct, Jiangsu - Regionally Extinct, Jiangxi - Possibly Extinct, Jilin, Liaoning - Regionally Extinct, Shaanxi - Possibly Extinct, Shandong - Regionally Extinct, Shanghai - Regionally Extinct, Shanxi - Regionally Extinct, Sichuan - Regionally Extinct, Tianjin - Regionally Extinct, Tibet [or Xizang], Xinjiang - Regionally Extinct, Yunnan, Zhejiang - Possibly Extinct)", " India", " Indonesia (Bali - Regionally Extinct, Jawa - Regionally Extinct, Sumatera)", " Lao People's Democratic Republic", " Malaysia (Peninsular Malaysia)", " Myanmar", " Nepal", " Russian Federation", " Thailand", " Viet Nam")
+ll.Panthera_tigris <- geocode(Panthera_tigris)
+
+Catopuma_badia <- c("Indonesia (Kalimantan)", " Malaysia (Sabah, Sarawak)")
+ll.Catopuma_badia <- geocode(Catopuma_badia)
+
+ggplot(bbox_df, aes(x=long,y=lat, group=group)) +
+  geom_polygon(fill="#58D3F7") +
+  geom_polygon(data=wmap_df, aes(x=long,y=lat, group=group, fill=hole)) + 
+  geom_path(data=countries_df, aes(x=long,y=lat, group=group, fill=hole), color="#0B610B")+
+  geom_polygon(data=urban_df, aes(x=long,y=lat, group=group, fill=hole), color="#BDBDBD", border="#848484", lwd=1.0, add=TRUE, alpha=I(2/10)) + 
+  geom_point(data=ll.Leopardus_jacobita, aes(x=lon,y=lat, group=NULL), color="#F3F781", lwd=5.0,alpha = 0.7) +
+  geom_point(data=ll.Panthera_uncia, aes(x=lon,y=lat, group=NULL), color="#FFBF00", lwd=5.0,alpha = 0.7) +
+  geom_point(data=ll.Prionailurus_viverrinus, aes(x=lon,y=lat, group=NULL), color="#FAAC58", lwd=5.0,alpha = 0.7 ) +
+  geom_point(data=ll.Panthera_tigris, aes(x=lon,y=lat, group=NULL), color="#F2F5A9", lwd=5.0,alpha = 0.7) +
+  geom_point(data=ll.Catopuma_badia, aes(x=lon,y=lat, group=NULL), color="#F5D0A9", lwd=5.0,alpha = 0.7) +
+  geom_path(data=grat_df, aes(long, lat, group=group, fill=NULL), linetype="dashed", color="grey50") +
+  labs(title="Endangered Felidae Species") + 
+  coord_equal() + 
+  scale_fill_manual(values=c("#04B404", "#58D3F7"), guide="none")
