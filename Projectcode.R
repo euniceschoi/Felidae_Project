@@ -93,3 +93,17 @@ countries=readOGR("ne_110m_admin_0_countries.shp", layer ="ne_110m_admin_0_count
 countries_df = fortify(countries)
 
 #convert all to dataframe
+
+library(ggplot2)
+ggplot(bbox_df, aes(x=long,y=lat, group=group)) + #plot map
+  geom_polygon(fill="#58D3F7") +
+  geom_polygon(data=worldmap_df, aes(x=long,y=lat, group=group, fill=hole)) + #add world map
+  geom_path(data=countries_df, aes(x=long,y=lat, group=group, fill=hole), color="#0B610B") + 
+  #add countries
+  geom_polygon(data=urban_df, aes(x=long,y=lat, group=group, fill=hole), color="#BDBDBD", border="#848484", lwd=0.2, add=TRUE, 
+  alpha = 0.1) + #add urban areas
+  geom_point(data=ll.Lynx_pardinus, aes(x=lon,y=lat, group=NULL), color="#FE2E9A", lwd=5.0,alpha = 0.7) + #add species points
+  labs(title="Critically Endangered Felidae Species") + #add labels
+  coord_equal() + #add coordinates
+  scale_fill_manual(values=c("#04B404", "#58D3F7"), guide="none") 
+  #color land
