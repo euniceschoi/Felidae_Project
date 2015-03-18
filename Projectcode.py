@@ -34,3 +34,20 @@ for item in wordcount.items(): print("{}\t{}".format(*item))
 
 
 
+#open new file called threatlevel
+file = open("threatlevel.txt","w",)
+#Search for threatlevels in felidae file
+for line in open('felidae_web'):
+    rec = line.strip()
+    if rec.startswith('Status'):
+        #write lines population trends onto the new file 
+        file.write(line)
+        file.close()
+
+#open threatlevel file
+file = open(r"threatlevel.txt", "r", encoding="utf-8-sig")
+from collections import Counter
+#count number of each threat level
+wordcount = Counter(file.read().split())
+#print threat level next to count
+for item in wordcount.items(): print({}\t{}".format(*item))
