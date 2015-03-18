@@ -64,4 +64,18 @@ for line in file:
         print "links{}.html".format(count), line
         subprocess.call(['curl','-L',' -o',"links{}.html".format(count),line.strip()])
 
-
+import glob
+import re
+import codecs
+#import program
+all_html = glob.glob("links*.html") #glob links
+file= codecs.open("felidae_geog.txt", "w", "utf-8")
+for html_file in all_html: #loop through html file
+    with open(html_file, "r") as rfile:
+        #find scientific name and countries
+        soup = BeautifulSoup(rfile)
+        name = soup.find('span', {'class': 'sciname'}).text 
+        georange = soup.find('div', {'class': 'group'}).text  
+        print (name) + (georange) + '\n' + '\n'
+        #write data to a file
+        file.write((name)+(georange) + '\n' + '\n') 
