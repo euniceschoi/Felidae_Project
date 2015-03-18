@@ -163,3 +163,53 @@ ggplot(bbox_df, aes(x=long,y=lat, group=group)) +
   coord_equal() + 
   #theme_opts +
   scale_fill_manual(values=c("#04B404", "#58D3F7"), guide="none")
+
+
+###Near threatened geocode and map
+Catopuma_temminckii.nt1=c("Bangladesh","Bhutan","Cambodia","China","India","Indonesia (Sumatera)","Lao People's Democratic Republic","Malaysia","Myanmar","Nepal","Thailand","Viet Nam")
+ll.Catopuma_temminckii.nt1=geocode(Catopuma_temminckii.nt1)
+
+Panthera_pardus.nt2=c("Afghanistan","Algeria","Angola","Armenia","Azerbaijan","Bangladesh","Benin","Bhutan","Botswana","Burkina Faso","Burundi","Cambodia","Cameroon","Central African Republic","Chad","China","Congo","Côte d'Ivoire","Djibouti","Egypt","Equatorial Guinea","Eritrea","Ethiopia","Gabon","Gambia","Georgia","Ghana","Guinea","Guinea-Bissau","India","Jawa","Iran, Islamic Republic of","Israel","Jordan","Kenya","Korea, Democratic People's Republic of","Laos","Liberia","Malawi","Malaysia","Mali","Morocco","Mozambique","Myanmar","Namibia","Nepal","Niger","Nigeria","Oman","Pakistan","Russian Federation","Rwanda","Saudi Arabia","Senegal","Sierra Leone","Somalia","South Africa","South Sudan","Sri Lanka","Sudan","Swaziland","Tajikistan","Tanzania, United Republic of","Thailand","Togo","Turkey","Turkmenistan","Uganda","United Arab Emirates","Uzbekistan","Viet Nam","Yemen","Zambia","Zimbabwe")
+ll.Panthera_pardus.nt2=geocode(Panthera_pardus.nt2)
+
+Caracal_aurata.nt3=c("Angola","Burundi","Cameroon","Central African Republic","Congo","Congo, The Democratic Republic of the","Côte d'Ivoire","Equatorial Guinea","Gabon","Ghana","Guinea","Kenya","Liberia","Nigeria","Rwanda","Senegal","Sierra Leone","South Sudan","Uganda")
+ll.Caracal_aurata.nt3=geocode(Caracal_aurata.nt3)
+
+Leopardus_colocolo.nt4=c("Argentina","Bolivia, Plurinational States of","Brazil","Chile","Ecuador","Paraguay","Peru","Uruguay")
+ll.Leopardus_colocolo.nt4=geocode(Leopardus_colocolo.nt4)
+
+Leopardus_wiedii.nt5=c("Argentina","Belize","Bolivia, Plurinational States of","Brazil","Colombia","Costa Rica","Ecuador","El Salvador","French Guiana","Guatemala","Guyana","Honduras","Mexico","Nicaragua","Panama","Paraguay","Peru","Suriname","Uruguay","Venezuela")
+ll.Leopardus_wiedii.nt5=geocode(Leopardus_wiedii.nt5)
+
+Leopardus_geoffroyi.nt6=c("Argentina","Bolivia","Brazil","Chile","Paraguay","Uruguay")
+ll.Leopardus_geoffroyi.nt6=geocode(Leopardus_geoffroyi.nt6)
+
+Felis_margarita.nt7=c("Algeria","Egypt","Iran, Islamic Republic of","Israel","Jordan","Kazakhstan","Kuwait","Mauritania","Morocco","Niger","Oman","Pakistan","Saudi Arabia","Syrian Arab Republic","Turkmenistan","United Arab Emirates","Uzbekistan","Western Sahara","Yemen")
+ll.Felis_margarita.nt7=geocode(Felis_margarita.nt7)
+
+Panthera_onca.nt8=c("Argentina","Belize","Bolivia, Plurinational States of","Brazil","Colombia","Costa Rica","Ecuador","French Guiana","Guatemala","Guyana","Honduras","Mexico","Nicaragua","Panama","Paraguay","Peru","Suriname","United States","Venezuela")
+ll.Panthera_onca.nt8=geocode(Panthera_onca.nt8)
+
+Otocolobus_manul.nt9=c("Afghanistan","Armenia","Azerbaijan","Beijing", "Nei Mongol", "Ningxia", "Qinghai","Shaanxi", "Sichuan", "Tibet", "Xinjiang","India","Iran, Islamic Republic of","Kazakhstan","Kyrgyzstan","Mongolia","Pakistan","Russia","Tajikistan","Turkmenistan","Uzbekistan")
+ll.Otocolobus_manul.nt9=geocode(Otocolobus_manul.nt9)
+
+ggplot(bbox_df, aes(x=long,y=lat, group=group)) +
+  geom_polygon(fill="#58D3F7") +
+  geom_polygon(data=wmap_df, aes(x=long,y=lat, group=group, fill=hole)) + 
+  geom_path(data=countries_df, aes(x=long,y=lat, group=group, fill=hole), color="#0B610B")+
+  geom_polygon(data=urban_df, aes(x=long,y=lat, group=group, fill=hole), color="#BDBDBD", border="#848484", lwd=1.0, add=TRUE, alpha=I(2/10)) + 
+  geom_point(data=ll.Catopuma_temminckii.nt1, aes(x=lon,y=lat, group=NULL), color="#8A2908", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Panthera_pardus.nt2, aes(x=lon,y=lat, group=NULL), color="#B43104", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Caracal_aurata.nt3, aes(x=lon,y=lat, group=NULL), color="#FF4000", lwd=5.0,alpha = 0.5 ) +
+  geom_point(data=ll.Leopardus_colocolo.nt4, aes(x=lon,y=lat, group=NULL), color="#FA8258", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Leopardus_wiedii.nt5, aes(x=lon,y=lat, group=NULL), color="#F78181", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Leopardus_geoffroyi.nt6, aes(x=lon,y=lat, group=NULL), color="#FA5858", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Felis_margarita.nt7, aes(x=lon,y=lat, group=NULL), color="#FF0000", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Panthera_onca.nt8, aes(x=lon,y=lat, group=NULL), color="#B40404", lwd=5.0,alpha = 0.5) +
+  geom_point(data=ll.Otocolobus_manul.nt9, aes(x=lon,y=lat, group=NULL), color="#610B0B", lwd=5.0,alpha = 0.5) +
+  geom_path(data=grat_df, aes(long, lat, group=group, fill=NULL), linetype="dashed", color="grey50") +
+  labs(title="Near Threatened Felidae Species") + 
+  coord_equal() + 
+  theme_opts +
+  scale_fill_manual(values=c("#04B404", "#58D3F7") ,guide="none")
+
